@@ -1,6 +1,6 @@
 <?php
 
-namespace OOPFinal;
+namespace Hexlet\Validator;
 
 class StringValidator extends AbstractValidator
 {

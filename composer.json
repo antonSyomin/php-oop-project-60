@@ -5,8 +5,8 @@
     },
     "autoload": {
         "psr-4": {
-            "OOPFinal\\": "src\\",
-            "OOPFInal\\Tests\\": "tests"
+            "Hexlet\\Validator\\": "src\\",
+            "Hexlet\\Validator\\Tests\\": "tests"
         }
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace OOPFinal\Tests;
+namespace Hexlet\Validator\Tests;
 
 use \PHPUnit\Framework\TestCase;
-use OOPFinal\Validator;
+use Hexlet\Validator\Validator;
 
 class ValidatorTest extends TestCase
 {
