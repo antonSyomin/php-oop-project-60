@@ -1,9 +1,8 @@
 <?php
 
-
 namespace Hexlet\Validator\Tests;
 
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 use Hexlet\Validator\Validator;
 
 class ValidatorTest extends TestCase
@@ -79,10 +78,9 @@ class ValidatorTest extends TestCase
         ]);
 
         $this->assertTrue($schema->isValid(['name' => 'kolya', 'age' => 100]));
-        $this->assertTrue($schema->isValid(['name' => 'maya', 'age' => null])); 
+        $this->assertTrue($schema->isValid(['name' => 'maya', 'age' => null]));
         $this->assertFalse($schema->isValid(['name' => '', 'age' => null]));
         $this->assertFalse($schema->isValid(['name' => 'ada', 'age' => -5]));
-        
     }
 
     public function testAddValidator()

@@ -12,7 +12,6 @@ class ArrayValidator extends AbstractValidator
         parent::__construct($fabric);
         $this->sizeof = null;
         $this->shapeValidator = null;
-
     }
 
     public function sizeof(int $size)
@@ -39,7 +38,7 @@ class ArrayValidator extends AbstractValidator
 
         if (!is_null($this->shapeValidator)) {
             foreach ($this->shapeValidator as $key => $value) {
-                if(!$value->isValid($arr[$key])) {
+                if (!$value->isValid($arr[$key])) {
                     return false;
                 }
             }

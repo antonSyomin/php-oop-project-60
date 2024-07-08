@@ -4,7 +4,7 @@ namespace Hexlet\Validator;
 
 class NumberValidator extends AbstractValidator
 {
-    private $positive; 
+    private $positive;
     private $rangeStart = null;
     private $rangeEnd = null;
 
@@ -38,8 +38,10 @@ class NumberValidator extends AbstractValidator
             return false;
         }
 
-        if (!is_null($this->rangeStart) && !is_null($this->rangeEnd) 
-        && ($number < $this->rangeStart || $number > $this->rangeEnd)) {
+        if (
+            !is_null($this->rangeStart) && !is_null($this->rangeEnd)
+            && ($number < $this->rangeStart || $number > $this->rangeEnd)
+        ) {
             return false;
         }
 

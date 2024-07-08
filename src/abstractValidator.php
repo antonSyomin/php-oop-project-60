@@ -33,10 +33,10 @@ abstract class AbstractValidator
     }
 
     public function test(string $name, mixed $value): self
-    {   
+    {
         $this->customValidators[$name] = $value;
         return $this;
     }
 
-    public abstract function isValid(mixed $obj): bool;
+    abstract public function isValid(mixed $obj): bool;
 }
