@@ -20,7 +20,7 @@ abstract class AbstractValidator
         return $this;
     }
 
-    public function checkCustomValidators(mixed $value, string $type): true
+    public function checkCustomValidators(mixed $value, string $type): bool
     {
         foreach ($this->customValidators as $name => $checkValue) {
             $stringValidators = $this->fabric->getValidators($type);
