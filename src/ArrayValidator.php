@@ -4,7 +4,7 @@ namespace Hexlet\Validator;
 
 class ArrayValidator extends AbstractValidator
 {
-    private int $sizeof;
+    private null|int $sizeof;
     private array $shapeValidator;
 
     public function __construct(Validator $fabric)
