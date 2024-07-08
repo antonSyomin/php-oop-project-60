@@ -36,7 +36,7 @@ class ArrayValidator extends AbstractValidator
             return false;
         }
 
-        if (!empty($this->shapeValidator)) {
+        if ($this->shapeValidator !== []) {
             foreach ($this->shapeValidator as $key => $value) {
                 if (!$value->isValid($arr[$key])) {
                     return false;

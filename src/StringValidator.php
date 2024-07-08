@@ -7,7 +7,7 @@ class StringValidator extends AbstractValidator
     private int $minLength;
     private null|string $contains;
 
-    public function __construct($fabric)
+    public function __construct(Validator $fabric)
     {
         parent::__construct($fabric);
         $this->fabric = $fabric;
