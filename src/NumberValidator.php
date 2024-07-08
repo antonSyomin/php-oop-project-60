@@ -1,16 +1,17 @@
 <?php
 
-require_once 'abstractValidator.php';
+namespace OOPFinal;
 
-class NumberValidator extends abstractValidator
+class NumberValidator extends AbstractValidator
 {
-    private bool $positive; 
+    private $positive; 
     private $rangeStart = null;
     private $rangeEnd = null;
 
-    public function __construct()
+    public function __construct($fabric)
     {
-        parent::__construct();
+        parent::__construct($fabric);
+        $this->fabric = $fabric;
         $this->positive = false;
     }
 
@@ -33,12 +34,16 @@ class NumberValidator extends abstractValidator
             return false;
         }
 
-        if ($this->positive && $number <= 0) {
+        if ($this->positive && $number <= 0 && !is_null($number)) {
             return false;
         }
 
         if (!is_null($this->rangeStart) && !is_null($this->rangeEnd) 
         && ($number < $this->rangeStart || $number > $this->rangeEnd)) {
+            return false;
+        }
+
+        if (!$this->checkCustomValidators($number, 'number')) {
             return false;
         }
         return true;

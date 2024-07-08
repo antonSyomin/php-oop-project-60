@@ -1,15 +1,16 @@
 <?php
 
-require_once 'abstractValidator.php';
+namespace OOPFinal;
 
-class StringValidator extends abstractValidator
+class StringValidator extends AbstractValidator
 {
     private $minLength;
     private $contains;
 
-    public function __construct()
+    public function __construct($fabric)
     {
-        parent::__construct();
+        parent::__construct($fabric);
+        $this->fabric = $fabric;
         $this->minLength = 0;
     }
 
@@ -37,10 +38,13 @@ class StringValidator extends abstractValidator
             return false;
         }
 
-        if (!is_null($this->contains) && !strpos($str, $this->contains)) {
+        if (!is_null($this->contains) && strpos($str, $this->contains) === false) {
             return false;
         }
 
+        if (!$this->checkCustomValidators($str, 'string')) {
+            return false;
+        }
         return true;
     }
 }
