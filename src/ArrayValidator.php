@@ -4,23 +4,23 @@ namespace Hexlet\Validator;
 
 class ArrayValidator extends AbstractValidator
 {
-    private $sizeof;
-    private $shapeValidator;
+    private int $sizeof;
+    private array $shapeValidator;
 
-    public function __construct($fabric)
+    public function __construct(Validator $fabric)
     {
         parent::__construct($fabric);
         $this->sizeof = null;
-        $this->shapeValidator = null;
+        $this->shapeValidator = [];
     }
 
-    public function sizeof(int $size)
+    public function sizeof(int $size): self
     {
         $this->sizeof = $size;
         return $this;
     }
 
-    public function shape(array $arr)
+    public function shape(array $arr): void
     {
         $this->shapeValidator = $arr;
     }
@@ -36,7 +36,7 @@ class ArrayValidator extends AbstractValidator
             return false;
         }
 
-        if (!is_null($this->shapeValidator)) {
+        if (!empty($this->shapeValidator)) {
             foreach ($this->shapeValidator as $key => $value) {
                 if (!$value->isValid($arr[$key])) {
                     return false;

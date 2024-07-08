@@ -4,9 +4,9 @@ namespace Hexlet\Validator;
 
 abstract class AbstractValidator
 {
-    protected $required;
-    protected $fabric;
-    protected $customValidators = [];
+    protected bool $required;
+    protected Validator $fabric;
+    protected array $customValidators = [];
 
     public function __construct(Validator $fabric)
     {
@@ -14,13 +14,13 @@ abstract class AbstractValidator
         $this->required = false;
     }
 
-    public function required()
+    public function required(): self
     {
         $this->required = true;
         return $this;
     }
 
-    public function checkCustomValidators($value, $type)
+    public function checkCustomValidators(mixed $value, string $type): true
     {
         foreach ($this->customValidators as $name => $checkValue) {
             $stringValidators = $this->fabric->getValidators($type);

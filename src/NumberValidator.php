@@ -4,24 +4,24 @@ namespace Hexlet\Validator;
 
 class NumberValidator extends AbstractValidator
 {
-    private $positive;
-    private $rangeStart = null;
-    private $rangeEnd = null;
+    private bool $positive;
+    private null|int $rangeStart = null;
+    private null|int $rangeEnd = null;
 
-    public function __construct($fabric)
+    public function __construct(Validator $fabric)
     {
         parent::__construct($fabric);
         $this->fabric = $fabric;
         $this->positive = false;
     }
 
-    public function positive()
+    public function positive(): self
     {
         $this->positive = true;
         return $this;
     }
 
-    public function range(int $start, int $end)
+    public function range(int $start, int $end): self
     {
         $this->rangeStart = $start;
         $this->rangeEnd = $end;

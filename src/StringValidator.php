@@ -4,23 +4,24 @@ namespace Hexlet\Validator;
 
 class StringValidator extends AbstractValidator
 {
-    private $minLength;
-    private $contains;
+    private int $minLength;
+    private null|string $contains;
 
     public function __construct($fabric)
     {
         parent::__construct($fabric);
         $this->fabric = $fabric;
+        $this->contains = null;
         $this->minLength = 0;
     }
 
-    public function contains(string $str)
+    public function contains(string $str): self
     {
         $this->contains = $str;
         return $this;
     }
 
-    public function minLength(int $length)
+    public function minLength(int $length): self
     {
         $this->minLength = $length;
         return $this;
